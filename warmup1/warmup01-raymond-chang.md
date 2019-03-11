@@ -1,0 +1,76 @@
+warmup01-raymond-chang
+================
+Raymond Chang
+2/10/2019
+
+1. Star Wars
+============
+
+A famous quote by Freya Fenris:
+-------------------------------
+
+> "We'll have to bring her in manually. Follow my signal."
+
+![](https://vignette.wikia.nocookie.net/starwars/images/4/43/SWResistance-FreyaFenris.jpg/revision/latest?cb=20180914204850)
+
+| Description | Value  |
+|-------------|--------|
+| Species     | Human  |
+| Gender      | Female |
+| Hair color  | Blonde |
+| Eye color   | Blue   |
+| Skin color  | Light  |
+
+2. Cooking Recipe
+=================
+
+Cucumber Lemonade
+-----------------
+
+### Ingredients
+
+-   1 pound of cucumbers (peel or unpeeled are both fine)
+-   1 cup of lemon juice (around 7 to 8 lemons)
+-   1/3 cup of granulated sugar
+-   2 cups of cold water
+
+### Special Kitchen Tools
+
+-   Blender or food processor (for cucumber)
+-   Fine-mesh strainer/cheesecloth
+
+### Steps
+
+1.  Blend cucumber in blender or food processor until pureed.
+2.  Strain cucumber through fine-mesh strainer lined with cheesecloth into a pitcher.
+3.  Stir while straining to help it move along faster.
+4.  Add lemon juice and sugar to pitcher and then water.
+5.  Mix well and let it sit in the fridge for 15 minutes.
+6.  Add more sugar or water if desired.
+7.  Serve chilled over ice.
+
+### Final Product
+
+![](https://smittenkitchendotcom.files.wordpress.com/2014/10/cucumber-lemonade1.jpg)
+
+### Seasonal
+
+-   Though this drink can be made year-round, it is best enjoyed during the warmer summer months.
+
+### Variation of Recipe
+
+-   To spice up the cucumber lemonade, a splash of seltzer can be added for an extra kick. For a bigger kick, gin can be added as well.
+
+3. Euclidean Distance
+=====================
+
+Definition
+----------
+
+##### The **Euclidean distance** between points **p** and **q** is the length of the line segment connection them ( $\\overline{\\textbf{pq}}$ ).
+
+##### In [Cartesian coordinates](https://en.wikipedia.org/wiki/Cartesian_coordinate), if **p** = (*p*<sub>1</sub>, *p*<sub>2</sub>, ..., *p*<sub>*n*</sub>) and **q** = (*q*<sub>1</sub>, *q*<sub>2</sub>, ..., *q*<sub>*n*</sub>) are two points in Euclidean *n*-space, then the distance (d) from **p** to **q**, or from **q** to **p** is given by the [Pythagorean formula](https://en.wikipedia.org/wiki/Pythagorean_theorem): <sup>\[1\]</sup>
+
+The position of a point in a Euclidean *n*-spance is a [Euclidean vector](https://en.wikipedia.org/wiki/Euclidean_vector). So, **p** and **q** may be represented as Euclidean vectors, starting from the origin of th space (initial point) with their tips (terminal points) ending at the two points. The [Euclidean norm](https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm), or **Euclidean length**, or **magnitude** of a vector measures the length of the vector:<sup>\[1\]</sup>
+
+where the last expression involves the [dot product](https://en.wikipedia.org/wiki/Dot_product).
