@@ -1,0 +1,128 @@
+---
+title: "Workout 1"
+author: "Raymond Chang"
+date: "3/13/2019"
+output: github_document
+---
+# 5.1 Effective Shooting Percentage
+```{r}
+library(dplyr)
+shots <- read.csv("../data/shots-data.csv")
+shots$X <- NULL
+shots
+
+names <- c("Stephen Curry", "Kevin Durant", "Draymond Green", "Andre Iguodala", "Klay Thompson")
+
+two_points_total_shots <- c(
+nrow(filter(shots, shot_type == "2PT Field Goal" & name == "Stephen Curry")), 
+nrow(filter(shots, shot_type == "2PT Field Goal" & name == "Kevin Durant")), 
+nrow(filter(shots, shot_type == "2PT Field Goal" & name == "Draymond Green")), 
+nrow(filter(shots, shot_type == "2PT Field Goal" & name == "Andre Iguodala")), 
+nrow(filter(shots, shot_type == "2PT Field Goal" & name == "Klay Thompson"))
+)
+two_points_total_shots
+
+two_points_made <- c(
+nrow(filter(shots, shot_type == "2PT Field Goal" & name == "Stephen Curry" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, shot_type == "2PT Field Goal" & name == "Kevin Durant" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, shot_type == "2PT Field Goal" & name == "Draymond Green" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, shot_type == "2PT Field Goal" & name == "Andre Iguodala" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, shot_type == "2PT Field Goal" & name == "Klay Thompson" & shot_made_flag == "shot_yes"))
+)
+two_points_made
+
+two_pt_effective_shooting_percentage <- data.frame(
+  name = names, 
+  total = two_points_total_shots, 
+  made = two_points_made, 
+  perc_made = two_points_made / two_points_total_shots
+  )
+
+two_pt_effective_shooting_percentage
+arrange(two_pt_effective_shooting_percentage, perc_made)
+
+
+
+
+
+
+
+
+three_points_total_shots <- c(
+nrow(filter(shots, shot_type == "3PT Field Goal" & name == "Stephen Curry")), 
+nrow(filter(shots, shot_type == "3PT Field Goal" & name == "Kevin Durant")), 
+nrow(filter(shots, shot_type == "3PT Field Goal" & name == "Draymond Green")), 
+nrow(filter(shots, shot_type == "3PT Field Goal" & name == "Andre Iguodala")), 
+nrow(filter(shots, shot_type == "3PT Field Goal" & name == "Klay Thompson"))
+)
+three_points_total_shots
+
+three_points_made <- c(
+nrow(filter(shots, shot_type == "3PT Field Goal" & name == "Stephen Curry" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, shot_type == "3PT Field Goal" & name == "Kevin Durant" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, shot_type == "3PT Field Goal" & name == "Draymond Green" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, shot_type == "3PT Field Goal" & name == "Andre Iguodala" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, shot_type == "3PT Field Goal" & name == "Klay Thompson" & shot_made_flag == "shot_yes"))
+)
+three_points_made
+
+three_pt_effective_shooting_percentage <- data.frame(
+  name = names, 
+  total = three_points_total_shots, 
+  made = three_points_made, 
+  perc_made =  three_points_made/three_points_total_shots
+ )
+
+three_pt_effective_shooting_percentage
+arrange(three_pt_effective_shooting_percentage, perc_made)
+
+
+
+
+
+
+total_points_total_shots <- c(
+nrow(filter(shots, name == "Stephen Curry")), 
+nrow(filter(shots, name == "Kevin Durant")), 
+nrow(filter(shots, name == "Draymond Green")), 
+nrow(filter(shots, name == "Andre Iguodala")), 
+nrow(filter(shots, name == "Klay Thompson"))
+)
+total_points_total_shots
+
+total_points_made <- c(
+nrow(filter(shots, name == "Stephen Curry" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, name == "Kevin Durant" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, name == "Draymond Green" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, name == "Andre Iguodala" & shot_made_flag == "shot_yes")), 
+nrow(filter(shots, name == "Klay Thompson" & shot_made_flag == "shot_yes"))
+)
+total_points_made
+
+total_pt_effective_shooting_percentage <- data.frame(
+  name = names, 
+  total = total_points_total_shots, 
+  made = total_points_made,
+  perc_made = total_points_made / total_points_total_shots
+   )
+total_pt_effective_shooting_percentage
+arrange(total_pt_effective_shooting_percentage, perc_made)
+
+```
+
+# 5.2 Narrative
+
+Though it is widely accept that sports data is collected by analyst, how do one truly make sense of it all? Fortunately, there has been rapid development of technological tools in recent years that has made analysis of sports data easier and more accessible than before. Even with a free software program such as R, in-depth analysis can be conducted due to the power and functionalities of this statistical programming language. To narrow our scope, the focus of this analysis report will be on five famous and influential basketball players on the Golden State Warriors: Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson, and Stephen Curry.
+
+Before we delve into the analysis, we will first introduce some background about the Golden State Warriors and the players themselves. As sourced from Wikipedia, the Golden State Warriors are an American professional basketball team based in Oakland, California. The Warriors compete in the National Basketball Association (NBA), as a member of the league's Western Conference Pacific Division. Founded in 1946 in Philadelphia, the Warriors relocated to the San Francisco Bay Area in 1962 and took the city's name, before changing its geographic moniker to Golden State in 1971.They play their home games at the Oracle Arena in Oakland. Their team colors are royal blue, slate, and California golden yellow. Their main sponsor is a Rakuten, a Japanese e-commerce company. Their president is Rick Welts, general manager is Bob Myers, and head coach is Steve Kerr. 
+
+An NBA All-Star in 2012 and named to the NBA All-Defensive Team twice, Andre Iguodala is a shooting guard/small forward of the GSW. Iguodala won an NBA championship with the Warriors in 2015, when he was named the NBA Finals Most Valuable Player. Iguodala helped the Warriors win two more championships in 2017 and 2018. He was acquired by Golden State in 2013. In 2014–15, he became a reserve for the first time in his career, but captured the Finals MVP after returning to the starting lineup in the middle of the finals series.Draymond Green is the power forward of the GSW, and he is a three-time NBA champion and a three-time NBA All-Star. In 2017, he won the NBA Defensive Player of the Year. He was drafted 35th overall in the 2012 NBA draft by the Golden State Warriors, and later played a key role on the Warriors' 2015, 2017 and 2018 championship teams. Green, who often plays significant minutes for the Warriors as an undersized center in their Death Lineup, has been cited as one of the leaders in an emerging trend in the NBA of versatile frontcourt players capable of playing and defending multiple positions, making plays for teammates and spacing the floor.Kevin Durant is the small forward of the GSW, and is one of the highest-paid basketball players in the world. Back in high school, Durant was a heavily recruited player amongst his class. As a professional, he has won two NBA championships, an NBA Most Valuable Player Award, two Finals MVP Awards, two NBA All-Star Game Most Valuable Player Awards, four NBA scoring titles, the NBA Rookie of the Year Award, and two Olympic gold medals. Durant has also been selected to eight All-NBA teams and ten NBA All-Star teams.Klay Thompson is a shooting guard of the GSW, and is credited as one of the greatest shooters in NBA history. He is a five-time NBA All-Star, a two-time All-NBA Third Team honoree, and a three-time NBA champion. In 2014, Thompson and teammate Stephen Curry set a then NBA record with 484 combined three-pointers in a season,earning the pair the nickname the "Splash Brothers". In 2015, Thompson helped lead the Warriors to their first NBA Championship since 1975, and was a key contributor in the Warriors' 2017 and 2018 titles.Stephen Curry is a point guard of the GSW, and is often considered the greatest shooter in NBA history. He is credited with revolutionizing the game of basketball by inspiring teams to regularly employ the three-point shot as part of their winning strategy. Curry is a six-time NBA All-Star, and he has been named the NBA Most Valuable Player (MVP) twice and won three NBA championships with the Warriors.
+
+To interpret the data, we must first understand what each column represents within the five csv files. team_name is the NBA team a specific player belongs to. In our analysis, this would be all Golden State Warriors. game_date is the date that a specific game was played. season is the NBA season the game was played during. minutes_remaining and seconds_remaining are the amounts of time that remain to be played in a given period. shot_made_flag is the y if the shot was successful and n is if the shot was unsuccessful. action_type has to do with the basketball moves used by players, either to pass by defenders to gain access to the basket, or to get a clean pass to a teammate to score a two pointer or three pointer. shot_type indicates whether a shot is a 2-point field goal or a 3-point field goal. shot_distance is the distance to the basket in feet. opponent is the name of the opposing team each Golden State Warrior player is playing against. x and y are the corresponding court coordinates where a shot occurred as measured in inches. To make the scatter plot more visually appealing, the points are plotted against an image of a basketball court. This way viewers can visually see where the player was standing when the shot was made and don’t have to interpret the inch coordinates of each shot.
+
+As we can see from the visual scatter plots, the shots made by each of the five players reflect their corresponding positions. For example, Andre Iguodala is the shooting guard/small forward, which means his main goal is to score points for his team and steal the ball on defense. This is reflected in the graph corresponding to his shots since there aren’t that many scored points further away from the court near the three point arc. However, Stephen Curry is a point guard which means his role is to run the team's offense by controlling the ball and making sure that it gets to the right player at the right time. This is reflected in his corresponding scatterplot as he takes much more shots than the shooting guard around the three point arc.
+
+Another metric we can use to understand the data is to make effecting shooting percentages for two-pointers, three-points, and all points. From the tables above, we see that Draymond Green has the lowest percentage of shots made across all three. Andre Iguodala has the highest percentage of two point shots made, and Klay Thompson has the highest percentage of three point shots made. In total, Kevin Durant has the highest percentage of shots made for both two and three pointers. We can also see that across the five players, there are higher percentages of shots made for two pointers than for three pointers. This makes logical sense because we would expect it to be easier to make a two point shot rather than a three point shot
+In conclusion, we can see that the scatterplot of shots are reflective of each player’s position. Also, the tables of effective shooting percentages by two pointers, three pointers, and all shots attempted align in terms of our expected percentage of shots made. The main takeaway we can get from this analysis is that these five basketball players, Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson, Stephen Curry, are essentially playing as they should be. From the scatterplot, we can see that positions such as the shooting guard have less shots than the point guard. This passes our sanity check since point guards have a more offensive role than the shooting guard. So if the question of whether or not any of these five Golden State Warrior players are playing their assigned positions was posed, then the answer would be a resounding yes, since we have the data, visualizations, and analysis to back up the claim. However, the single most takeaway I want to leave readers with is that though data (not limited to only sports data) is tangible is easily to make statements about, it is important for data analysts to always run a sanity check at the end to make sure that their data is within reason of what is expected.
+
+References: The csv files along with the data dictionary are sourced from https://github.com/ucb-stat133/stat133-hws/tree/master/data. Information about the individual players are from their corresponding Wikipedia pages. Information about the player positions’ details and the image for the basketball court are sourced from https://hooptactics.com/basketball-player-positions.  
