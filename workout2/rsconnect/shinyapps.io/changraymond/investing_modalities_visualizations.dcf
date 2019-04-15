@@ -1,0 +1,12 @@
+name: investing_modalities_visualizations
+title: investing_modalities_visualizations
+username:
+account: changraymond
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 867233
+bundleId: 2014043
+url: https://changraymond.shinyapps.io/investing_modalities_visualizations/
+when: 1555371872.59819
+asMultiple: FALSE
+asStatic: FALSE
